@@ -11,7 +11,8 @@ fetch("https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json")
     console.log(data);
   })
   .catch((err) => {
-    console.error(`There was an error: ${err}`);
+    authorContainer.innerHTML = '<p class="error-msg">There was an error loading the authors</p>';
+  });
   });
 
 //add functionality to load more authors and disable button after all response is displayed
