@@ -5,15 +5,16 @@ let startingIndex = 0;
 let endingIndex = 8;
 let authorDataArr = [];
 
-fetch("https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json")
+fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
+    authorDataArr = data;
+    displayAuthors(authorDataArr.slice(startingIndex, endingIndex));  
   })
   .catch((err) => {
-    authorContainer.innerHTML = '<p class="error-msg">There was an error loading the authors</p>';
+   authorContainer.innerHTML = '<p class="error-msg">There was an error loading the authors</p>';
   });
-  });
+
 
 //add functionality to load more authors and disable button after all response is displayed
 const fetchMoreAuthors = () => {
